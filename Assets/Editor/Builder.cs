@@ -11,6 +11,7 @@ public class Builder : MonoBehaviour
 	static void PerformBuild ()
 	{
 		EditorPrefs.SetString("AndroidSdkRoot", Environment.GetEnvironmentVariable("ANDROID_SDK_HOME"));
+		EditorUserBuildSettings.selectedBuildTargetGroup = BuildTargetGroup.Android;
 		AssetDatabase.SaveAssets();
 		BuildPipeline.BuildPlayer(getScenesInBuildSettings(), Path.Combine(Path.GetFullPath("."), "test.apk"), BuildTarget.Android, new BuildOptions{});
 	}
