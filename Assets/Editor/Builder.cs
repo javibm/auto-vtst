@@ -19,7 +19,7 @@ public class Builder : MonoBehaviour
 		EditorPrefs.SetString("AndroidSdkRoot", Environment.GetEnvironmentVariable("ANDROID_SDK_HOME"));
 		EditorPrefs.SetString("JdkPath", Environment.GetEnvironmentVariable("JAVA_HOME"));
 		AssetDatabase.SaveAssets();
-		BuildPipeline.BuildPlayer(getScenesInBuildSettings(), Path.Combine(Path.GetFullPath("."), "test.apk"), BuildTarget.StandaloneOSX, new BuildOptions{});
+		BuildPipeline.BuildPlayer(getScenesInBuildSettings(), Path.Combine(Path.GetFullPath("."), "test.apk"), BuildTarget.Android, new BuildOptions{});
 	}
 
 	private static string[] getScenesInBuildSettings()
