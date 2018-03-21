@@ -8,3 +8,5 @@ jobs:
       - run:
           name: Build Unity
           command: /opt/Unity/Editor/Unity -quit -batchmode -nographics -executeMethod Builder.PerformBuild -projectPath $(pwd) -logFile -buildTarget Android
+      - store_artifacts:
+          path: test.apk
