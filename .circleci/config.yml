@@ -1,0 +1,10 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: kukiri/unityci:2017.3.1f1
+    steps:
+      - checkout
+      - run:
+          name: Build Unity
+          command: /opt/Unity/Editor/Unity -quit -nographics -executeMethod Builder.PerformBuild -projectPath $(pwd) -logFile -buildTarget Android
