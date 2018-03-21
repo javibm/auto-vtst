@@ -7,4 +7,4 @@ jobs:
       - checkout
       - run:
           name: Build Unity
-          command: /opt/Unity/Editor/Unity -quit -nographics -executeMethod Builder.PerformBuild -projectPath $(pwd) -logFile -buildTarget Android
+          command: /opt/Unity/Editor/Unity -quit -batchmode -nographics -executeMethod Builder.PerformBuild -projectPath $(pwd) -logFile -buildTarget Android
