@@ -20,6 +20,7 @@ public class Builder : MonoBehaviour
 		EditorPrefs.SetString("JdkPath", Environment.GetEnvironmentVariable("JAVA_HOME"));
 		AssetDatabase.SaveAssets();
 		string error = BuildPipeline.BuildPlayer(getScenesInBuildSettings(), Path.Combine(Path.GetFullPath("."), "test.apk"), BuildTarget.Android, new BuildOptions{});
+		Debug.Log("JAVI " + error);
 		if( string.IsNullOrEmpty( error ) )
 		    EditorApplication.Exit( 0 );
 		else
