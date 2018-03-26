@@ -7,7 +7,6 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - library-{{ checksum "Library/assetDatabase3" }}
             - library-
       - run:
           name: Build Unity
