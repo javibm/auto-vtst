@@ -5,11 +5,16 @@ jobs:
       - image: kukiri/unityci:2017.4.0f1
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - library-
       - run:
           name: Build Unity
           command: /opt/Unity/Editor/Unity -quit -batchmode -nographics -executeMethod Builder.PerformBuild -projectPath $(pwd) -logFile -buildTarget Android
       - store_artifacts:
           path: test.apk
-      - run:
-          name: Deploy to Gate
-          command: curl -F "file=@test.apk" -F "token=05c54026087b89558ec641d773225d9e52001eec" -F "message=sample" https://deploygate.com/api/users/kukiri/apps
+      - save_cache:
+          key: library-{{ checksum "Library/assetDatabase3" }}
+          paths:
+            - Library/
+      
